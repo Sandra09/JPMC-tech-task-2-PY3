@@ -7,6 +7,7 @@ import './App.css';
  * State declaration for <App />
  */
 interface IState {
+  //the values the app will have and should always have to be valid
   data: ServerRespond[],
   showGraph: boolean,
 }
@@ -23,6 +24,7 @@ class App extends Component<{}, IState> {
       // data saves the server responds.
       // We use this state to parse data down to the child element (Graph) as element property
       data: [],
+      //don't show graph until the 'Start Streaming Data' button is clicked
       showGraph: false,
     };
   }
@@ -31,6 +33,7 @@ class App extends Component<{}, IState> {
    * Render Graph react component with state.data parse as property data
    */
   renderGraph() {
+  //makes sure the the graph renders only when showGraph is true
     if (this.state.showGraph){
         return (<Graph data={this.state.data}/>)
     }
